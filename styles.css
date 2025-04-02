@@ -102,11 +102,13 @@ header .container {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://source.unsplash.com/random/1920x1080/?business') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('pic/webpic.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     text-align: center;
     margin-top: 70px;
+    background-size: 100% auto;
+    background-position: center;
 }
 
 .hero-content {
@@ -151,8 +153,11 @@ header .container {
 .image-placeholder {
     background-color: #ddd;
     height: 300px;
+    width: 100%;
     border-radius: 5px;
-    background: url('https://source.unsplash.com/random/600x400/?team') no-repeat center center/cover;
+    background: url('pic/webpic.jpg') no-repeat center center;
+    background-size: contain;
+    max-width: 100%;
 }
 
 /* Services Section */
@@ -313,6 +318,10 @@ footer {
     .social-links a:first-child {
         margin-left: 0;
     }
+
+    .hero {
+        background-size: cover;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -322,5 +331,74 @@ footer {
 
     .hero-content h2 {
         font-size: 2.2rem;
+    }
+
+    .image-placeholder {
+        height: 200px;
+        background-size: cover;
+    }
+
+    .text-rotate {
+        font-size: 1.2rem;
+    }
+}
+
+/* Animated Text */
+.animated-text {
+    height: 60px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.text-rotate {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #fff;
+    height: 60px;
+    line-height: 60px;
+    overflow: hidden;
+    position: relative;
+}
+
+.text-rotate span {
+    height: 60px;
+    margin-bottom: 60px;
+    padding: 0 10px;
+    white-space: nowrap;
+}
+
+.text-rotate:before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: transparent;
+    border-left: 2px solid #fff;
+    animation: typing 6s steps(1) infinite;
+}
+
+.text-rotate {
+    animation: slide 12s steps(2) infinite;
+}
+
+@keyframes typing {
+    0%, 50%, 100% {
+        border-color: #fff;
+    }
+    25%, 75% {
+        border-color: transparent;
+    }
+}
+
+@keyframes slide {
+    100% {
+        transform: translateY(-120px);
     }
 } 
